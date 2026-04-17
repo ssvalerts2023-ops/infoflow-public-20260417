@@ -1,0 +1,8 @@
+Target name: [target_company] 
+Aliases: [alias1], [alias2]
+Locale hints: [HQ locaion1]
+
+This is a minimal seed background for starting the workflow from scratch.
+Users may replace this file in place with a richer seed background or with an updated background from a previous workflow run. 
+
+IMPORTANT: the config file contains an independent target name and aliases for source-recheck purposes. Copy them from this file.

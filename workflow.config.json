@@ -1,0 +1,78 @@
+{
+  "target_profile": {
+    "target_name": "",
+    "aliases": ["", ""]
+  },
+  "search": {
+    "api_base_url": "https://api.dataforseo.com",
+    "api_path": "/v3/serp/google/organic/live/regular",
+    "api_retries": 3,
+    "default_depth": 50
+  },
+  "paths": {
+    "query_seed_file": "sample_data/00_seed_background.txt",
+    "master_query_csv": "01_search_queries.csv",
+    "master_url_csv": "02_discovered_urls.csv",
+    "query_url_map_csv": "02_query_url_provenance.csv",
+    "downloads_dir": "03_source_documents",
+    "download_lookup_dirs": ["03_source_documents"],
+    "file_review_json": "04_file_level_extractions.json",
+    "relevant_csv": "05_relevant_entity_rows.csv",
+    "other_csv": "05_nonrelevant_or_unclassified_rows.csv",
+    "findings_json": "06_relationship_findings.json",
+    "findings_report_json": "06_relationship_run_report.json",
+    "findings_review_csv": "06_canonical_name_review.csv",
+    "background_file": "sample_data/00_seed_background.txt",
+    "background_output_text": "07_updated_background_report.txt",
+    "background_output_csv": "07_background_change_log.csv",
+    "background_output_diff": "07_background_diff.html",
+    "background_artifacts_dir": "07_background_update_artifacts"
+  },
+  "prompts": {
+    "query_generation": "prompts/01_search_queries_generation_prompt.txt",
+    "file_analysis": "prompts/04_file_level_extractions_prompt.txt",
+    "relationship_summary": "prompts/06_relationship_findings_prompt.txt",
+    "background_update": "prompts/07_updated_background_report_prompt.txt"
+  },
+  "models": {
+    "query_generation": "gpt-5",
+    "file_analysis": "gpt-5-mini",
+    "relationship_summary": "gpt-5",
+    "background_update": "gpt-5"
+  },
+  "providers": {
+    "dataforseo_login": { "env": "SEO_USER" },
+    "dataforseo_password": { "env": "SEO_PASS" },
+    "cloudflare_api_token": { "env": "FLARE_API_KEY" },
+    "cloudflare_account_id": { "env": "FLARE_CLIENT_ID" },
+    "openai_api_key": { "env": "OPENAI_API_KEY" },
+    "openai_base_url": "https://api.openai.com/v1"
+  },
+  "fetch": {
+    "req_timeout": [10.0, 50.0],
+    "req_retries": 2,
+    "trafi_retries": 1,
+    "backoff": 0.8,
+    "cf_retries": 4,
+    "cf_backoff_base": 2.0,
+    "cf_backoff_cap": 20.0,
+    "cloudflare_api_base_url": "https://api.cloudflare.com/client/v4",
+    "cloudflare_nav_timeout_ms": 60000,
+    "cloudflare_action_timeout_ms": 120000,
+    "cloudflare_extra_wait_ms": 4000,
+    "denylist_domains": [],
+    "per_domain_min_interval_sec": 1.0,
+    "jitter_range_sec": [0.05, 0.25]
+  },
+  "analysis": {
+    "query_generation_max_attempts": 2,
+    "max_full_file_bytes": 71680,
+    "chunk_radius": 5000,
+    "summary_max_attempts": 2,
+    "background_update_max_attempts": 2,
+    "background_block_size": 10
+  },
+  "workflow": {
+    "enable_background_update": true
+  }
+}

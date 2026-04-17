@@ -1,0 +1,10 @@
+requests>=2.32
+beautifulsoup4>=4.12
+markdownify>=1.2
+trafilatura>=2.0
+pandas>=2.3
+openai>=2.9
+PyYAML>=6.0
+pdfminer.six>=20250506
+playwright>=1.55
+playwright-stealth>=1.0
